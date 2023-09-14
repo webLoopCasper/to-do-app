@@ -1,0 +1,168 @@
+*{
+   font-family: 'Poppins', sans-serif;
+   padding:0;
+   margin: 0;
+   box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+    background-color: antiquewhite;
+}
+.headline{
+    text-align: center;
+    font-size: 30px;
+}
+
+.input-area{
+    display: flex;
+    justify-content: center;
+}
+.headline-task{
+    width: 500px;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: -2px -2px 4px -1px rgba(0,0,0,0.12) inset;
+-webkit-box-shadow: -2px -2px 4px -1px rgba(0,0,0,0.12) inset;
+-moz-box-shadow: -2px -2px 4px -1px rgba(0,0,0,0.12) inset;
+   
+}
+
+.desc-task{
+    width: 500px;
+    height: 200px;
+    border: none;
+    border-radius: 20px;
+    
+    padding: 10px;
+    box-shadow: -2px -2px 4px -1px rgba(0,0,0,0.12) inset;
+-webkit-box-shadow: -2px -2px 4px -1px rgba(0,0,0,0.12) inset;
+-moz-box-shadow: -2px -2px 4px -1px rgba(0,0,0,0.12) inset;
+
+}
+.desc-task-text{
+    margin-top: 10px;
+}
+.greenButton{
+    background-color: rgb(0, 106, 0);
+    padding: 10px 15px;
+    border-radius: 15px;
+    color: rgb(250, 248, 225);
+    border: none;
+    margin: 10px 2px;
+}
+
+
+.greenButton:hover{
+    background-color: rgb(1, 154, 1);
+   
+}
+
+.redButton{
+    background-color: rgb(140, 1, 1);
+    padding: 10px 15px;
+    border-radius: 15px;
+    color: rgb(250, 248, 225);
+    border: none;
+    margin: 10px 2px;
+}
+.redButton:hover{
+    background-color:rgba(186, 3, 3);
+}
+
+.neworold-task-headline{
+    margin: 20px 0px;
+}
+
+
+.single-task{
+    /* border: 1px solid black; */
+    margin-bottom: 20px;
+    border-radius: 25px;
+    padding: 20px;
+    background-color: rgb(250, 248, 225);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.22);
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.22);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.22);
+}
+
+
+.descDisplay{
+    margin-bottom: 10px;
+    white-space:pre;
+}
+
+.task-wrapper .single-task[data-done="true"] {
+ 
+     animation-name: example;
+    animation-duration: 0.8s; 
+    position: relative;
+    
+  }
+  
+   @keyframes example {
+    0%   { left:0px; top:0px;}
+    100%  { left:200%; top:0px;}
+    
+  } 
+
+.content-container{
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.checkboxDisplay{
+    background-color: rgb(0, 106, 0);
+    /* padding: 5px 5px 0px 5px; */
+    height: 40px;
+    width: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    color: rgb(250, 248, 225);
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.41);
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.41);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.41);
+    margin-right: 10px;
+}
+
+.checkboxDisplay:hover{
+    background-color: rgb(1, 154, 1);
+   
+}
+
+.deleteTask{
+    background-color: rgb(140, 1, 1);
+    /* padding: 5px 5px 0px 5px; */
+    height: 40px;
+    width: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    color: rgb(250, 248, 225);
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.41);
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.41);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.41);
+}
+
+.deleteTask:hover{
+    background-color:rgba(186, 3, 3);
+}
+
+
+.buttons{
+    display: flex;
+}
+
+.button-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
