@@ -1,9 +1,10 @@
 
-// nuId id vi er nået til 
+// nuId id er det nummer opgave vi er nået til
 let nuId = 0;
 // allTask er det array hvor alle task objects vil blive gemt
 let allTask = [];
 
+let newTaskOrOld;
 // Task er skabelonen til task objecter
 const Task = {
     id:0,
@@ -21,44 +22,36 @@ let descTask = document.querySelector(".desc-task");
 
 
 
-// dette er hard reset button som reset
+// dette er hard reset button som sletter alt der står i localStorage
 document.querySelector("#reset").addEventListener("click",()=>{
     localStorage.setItem("allTask","");
     localStorage.setItem("nuid","");
 })
 
-// når siden load'er kører denne 
+// når siden load'et kører denne 
 window.addEventListener("load", () => {
     // her får hele allTask array som getString men den er en string
     let getString = localStorage.getItem("allTask");
     let getStringId = localStorage.getItem("nuid");
-    // JSON.parse laver getString om til array og objects igen og gemmer den som allTask
-   
+    
+   // tjekker om der er noget i get getString
     if(getString){
-        allTask = JSON.parse(getString);
+     // JSON.parse laver det om til array og objects igen og gemmer den som allTask
+    allTask = JSON.parse(getString);
     nuId = JSON.parse(getStringId);
+    // kører sendAndBuild functionen
     sendAndBuild();
     }
     
+    // dette er når man trykker på opgave knappen 
     document.querySelector(".new-task-show").addEventListener("click",()=>{
         
         sendAndBuild();
        })
    document.querySelector(".old-task").addEventListener("click",()=>{
     
-    
-    sendAndBuild("old");
-   })
-    
-
-
-
-   
-    
-    
-    // functionen senAndBuild sender til localstorge og bygger det 
-    
-    // for at få nuId op til det id vi er nået til 
+        sendAndBuild("old");
+       })
     
   
 });
@@ -99,8 +92,6 @@ newTask.addEventListener("click",function() {
     alert("Du skal udfyld både overskrift og beskrivelse")
     // document.querySelector("#error").textContent ="Du skal udfyld både overskrift og beskrivelse";
    }
-    
-    
 
 });
 
@@ -109,6 +100,7 @@ function sendAndBuild(newOrOld){
     document.querySelector(".task-container").innerHTML = " ";
 
     if(newOrOld == "old"){
+        newTaskOrOld = false;
         document.querySelector("#task-wrapper").classList="";
         document.querySelector(".neworold-task-headline").innerHTML="Færdige Opgaver";
     let DoneAllTask = allTask.filter((single)=>{
@@ -118,9 +110,9 @@ function sendAndBuild(newOrOld){
             return false;
         }
     });
-    
-    DoneAllTask.forEach(buildList);
+        DoneAllTask.forEach(buildList);
     }else{
+        newTaskOrOld = true;
         document.querySelector("#task-wrapper").classList.add("task-wrapper");
         document.querySelector(".neworold-task-headline").innerHTML="Opgaver";
         notDoneAllTask = allTask.filter((single)=>{
@@ -151,7 +143,7 @@ function sendAndBuild(newOrOld){
     doneTaskButton.forEach(checkboxTjek);
     
     function checkboxTjek(singleCheckbox){
-    singleCheckbox.addEventListener("click", function(){
+        singleCheckbox.addEventListener("click", function(){
         
         let idOnDiv = this.parentElement.parentElement.dataset.id;
         let doneOnDiv = this.parentElement.parentElement;
@@ -187,12 +179,6 @@ function sendAndBuild(newOrOld){
             
            
         });
-        
-
-        
-       
-       
-      
     })
     
     }
@@ -228,7 +214,7 @@ function buildList(task) {
     clone.querySelector(".headlineDisplay").textContent = task.headline; 
     clone.querySelector(".descDisplay").textContent = task.desc;
     clone.querySelector(".checkboxDisplay").checked = task.done;
-    
+     clone.querySelector(".material-symbols-outlined").textContent = newTaskOrOld?"done":"undo";
 
     document.querySelector(".task-container").appendChild( clone ); 
    
